@@ -35,10 +35,6 @@ namespace Oralce_query_test02_create
                 "HP varchar(20))";
             //3.3 쿼리 실행하기
             cmd.ExecuteNonQuery();
-            //3.4 쿼리 삽입하기
-            cmd.CommandText = "INSERT INTO PhoneBook VALUES " +
-                "(1, '이순신', '010-1111-1111')";
-            cmd.ExecuteNonQuery();
             //4. 리소스 반환 및 종료
             conn.Close();
 
