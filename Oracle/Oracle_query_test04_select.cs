@@ -39,7 +39,7 @@ namespace Oracle_query_test04_select
             while(rdr.Read())
             {
                 //int id = rdr.GetInt32(0); //int나 number로 받을때 
-                //int id = int.Parse(rdr.GetString(0));
+                //int id = int.Parse(rdr.GetString(0));  // 0이 뜻하는 것은 컬럼의 순서 0부터 첫번째 컬럼
                 //int id = int.Parse(rdr["ID"] as string); //Error
                 int id = int.Parse(rdr["ID"].ToString());
                 string name = rdr["NAME"] as string;
