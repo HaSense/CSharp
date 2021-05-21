@@ -38,7 +38,10 @@ namespace Oracle_query_test04_select
 
             while(rdr.Read())
             {
-                int id = rdr.GetInt32(0); //int나 number로 받을때 
+                //int id = rdr.GetInt32(0); //int나 number로 받을때 
+                //int id = int.Parse(rdr.GetString(0));
+                //int id = int.Parse(rdr["ID"] as string); //Error
+                int id = int.Parse(rdr["ID"].ToString());
                 string name = rdr["NAME"] as string;
                 string hp = rdr["HP"] as string;
 
