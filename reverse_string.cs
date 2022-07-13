@@ -16,7 +16,7 @@ namespace reverse_string
         }
         static void Main(string[] args)
         {
-            string original = "This is original";
+            string original = "ABCDE";
             string reversed = Reverse(original);
             Console.WriteLine(reversed);
         }
