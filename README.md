@@ -18,6 +18,6 @@
 3. 상속(Inheritance)
 ----
 C# 객체지향(OOP)을 위한 추가개념
-ㄱ. 래퍼클래스(Wrapper Class) - Int32, Int64 등
-ㄴ. 박싱(Boxing), 언박싱(UnBoxing)
-ㄷ. 깊은복사(Deep Copy) 얇은복사(Shallow Copy)
+1. 래퍼클래스(Wrapper Class) - Int32, Int64 등
+2. 박싱(Boxing), 언박싱(UnBoxing)
+3. 깊은복사(Deep Copy) 얇은복사(Shallow Copy)
