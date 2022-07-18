@@ -8,12 +8,12 @@ namespace DotNet_Core_exam001
 {
     class Calculrator
     {
-        public int InputValue()
+        public int InputValueCalculate()
         {
             int N = Int32.Parse(Console.ReadLine());
             return N;
         }
-        public int Logic(int N)
+        public int LogicCalculate(int N)
         {
             int sum = 0;
             for (int i = 1; i <= N; i++)
@@ -37,10 +37,10 @@ namespace DotNet_Core_exam001
 
             Calculrator calculrator = new Calculrator();
 
-            int N = calculrator.InputValue();
+            int N = calculrator.InputValueCalculate();
             int sum = 0;
             
-            sum = calculrator.Logic(N);
+            sum = calculrator.LogicCalculate(N);
 
             Console.WriteLine(sum);
 
