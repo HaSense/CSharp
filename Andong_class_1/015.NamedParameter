@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NamedParameter
+{
+    internal class Program
+    {   //명명된 인수 문법
+        static void PrintProfile(string name, string phone) //함수선언
+        {
+            Console.WriteLine($"Name : {name}, Phone : {phone}");
+        }
+       
+        static void Main(string[] args)
+        {
+            PrintProfile(name:"박찬호", phone:"010-123-1234");
+            PrintProfile(phone:"010-123-1234", name:"박찬호");
+            PrintProfile("박찬호", "010-123-1234"); // ---> 일반적인 방법!!!!
+            PrintProfile("홍길동", phone: "010-333-3333");
+        }
+    }
+}
