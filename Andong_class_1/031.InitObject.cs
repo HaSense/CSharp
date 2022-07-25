@@ -47,4 +47,4 @@ namespace DotNet_Core_031_InitObject
             Console.WriteLine(customer.GetType());
         }
     }
-}
+}   
