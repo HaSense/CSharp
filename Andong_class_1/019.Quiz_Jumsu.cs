@@ -17,6 +17,7 @@ namespace Quiz001
             string input_str = Console.ReadLine();
             string[] input_split_arr = input_str.Split(' ');
 
+            //문자열 숫자배열 정수 숫자배열로 변환 한줄
             score = Array.ConvertAll(input_split_arr, i => Int32.Parse(i));
 
 
