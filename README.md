@@ -33,14 +33,14 @@ Front --> UI/UX / ALL(Full Stack)
              Bootstrap, SemanticUI
 
 
-BackEnd --> CGI , Pearl, JSP, ASP, PHP, 
+BackEnd -->  CGI , Pearl, JSP, ASP, PHP, 
    
-                 EJB, Spring, Spring Boot   |  전자정부프레임워크
+             EJB, Spring, Spring Boot   |  전자정부프레임워크
 	     ASP, ASP.Net,  ASP.Net Core
 
-                 난이도 쉬움 ---> PHP => Lalabel
-                                       JSP --> WebPage  => Servlet <-- Java
+             난이도 쉬움 ---> PHP => Lalabel
+                             JSP --> WebPage  => Servlet <-- Java
                                       
-                                       Node.js ==> Next.js
+             Node.js ==> Next.js
 -------------------------------------------------------------------------------------
 WinForm C# --> 윈도우 프로그램
