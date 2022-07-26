@@ -21,3 +21,26 @@ C# 객체지향(OOP)을 위한 추가개념
 1. 래퍼클래스(Wrapper Class) - Int32, Int64 등
 2. 박싱(Boxing), 언박싱(UnBoxing)
 3. 깊은복사(Deep Copy) 얇은복사(Shallow Copy)
+
+
+----------------------------------------------------------------------------------------------
+Web Programming Stack
+
+Front --> UI/UX / ALL(Full Stack)
+             HTML5, CSS, (JavaScript ==> jQuery)
+             Angular.js(1, 2), React.js(FaceBook), Vue.js, Svelte.js
+
+             Bootstrap, SemanticUI
+
+
+BackEnd --> CGI , Pearl, JSP, ASP, PHP, 
+   
+                 EJB, Spring, Spring Boot   |  전자정부프레임워크
+	     ASP, ASP.Net,  ASP.Net Core
+
+                 난이도 쉬움 ---> PHP => Lalabel
+                                       JSP --> WebPage  => Servlet <-- Java
+                                      
+                                       Node.js ==> Next.js
+-------------------------------------------------------------------------------------
+WinForm C# --> 윈도우 프로그램
