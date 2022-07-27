@@ -29,18 +29,16 @@ Web Programming Stack
 Front --> UI/UX / ALL(Full Stack)
              HTML5, CSS, (JavaScript ==> jQuery)
              Angular.js(1, 2), React.js(FaceBook), Vue.js, Svelte.js
-
              Bootstrap, SemanticUI
 
 
 BackEnd -->  CGI , Pearl, JSP, ASP, PHP, 
-   
              EJB, Spring, Spring Boot   |  전자정부프레임워크
 	     ASP, ASP.Net,  ASP.Net Core
 
-             난이도 쉬움 ---> PHP => Lalabel
+             난이도 쉬움 ---> PHP => Lalabel(PHP 프레임워크)
                              JSP --> WebPage  => Servlet <-- Java
                                       
-             Node.js ==> Next.js
+             Node.js ==> Next.js(Node.js 프레임워크)
 -------------------------------------------------------------------------------------
 WinForm C# --> 윈도우 프로그램
