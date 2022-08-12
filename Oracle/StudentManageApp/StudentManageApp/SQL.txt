@@ -1,0 +1,42 @@
+과정별 학생관리 프로젝트
+
+학생번호 이름 나이 과정명 대학교 전공 이메일 전화번호 특징 상담
+
+[테이블]
+STUDENT_BY_COURSE (
+	학생번호	NUMBER(5)	PRIMARY KEY,
+	이름	VARCHAR2(20)	NOT NULL,
+	나이	NUMBER(3),
+	과정명	VARCHAR2(30),
+	대학교	VARCHAR2(20),
+	전공	VARCHAR2(20),
+	이메일	VARCHAR2(30),
+	전화번호	VARCHAR2(13),
+	특징	VARCHAR2(100),
+	상담	VARCHAR2(200)	
+);
+
+[시퀀스]
+CREATE SEQUENCE  STUDENT_SEQ
+	MINVALUE 1 
+	MAXVALUE 99999 
+	INCREMENT BY 1 
+	START WITH 1 
+	CACHE 2 
+	NOORDER  
+	NOCYCLE ;
+
+[데이터 삽입 3건]
+INSERT INTO STUDENT_BY_COURSE
+VALUES (STUDENT_SEQ.NEXTVAL, '홍길동', 20, '스마트팩토리', '안동대', '컴퓨터공학', 
+        'honggil@gmail.com', '010-1111-1111', '아버지를 아버지라 부르지 못한다', '호부호형을 명했다');
+
+INSERT INTO STUDENT_BY_COURSE
+VALUES (STUDENT_SEQ.NEXTVAL, '이순신', 45, '해전전문가', '통영대', '전쟁학', 
+        'leesunsin@a.com', '010-2222-2222', '나의 죽음을 알리지 마라', '전쟁이 끝날때까지 죽음을 알리지 않았다');
+
+INSERT INTO STUDENT_BY_COURSE
+VALUES (STUDENT_SEQ.NEXTVAL, '광개토', 37, '전쟁전문가', '국내성대', '전쟁학',
+        'kwanggaeto@a.com', '010-3333-3333', '아들 걱정이 많다', '아들 이름이 장수인데 걱정은 기우로 보인다.');
+
+commit; //커밋을 안하면 vs2022에서 Read시 읽어지지 않습니다. 
