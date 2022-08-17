@@ -26,10 +26,6 @@ namespace SQLParameterTest
 
             //1.연결 객체 만들기 - Client
             OracleConnection conn = new OracleConnection(strConn);
-
-            //OracleConnection 클래스 대신 SqlConnection 클래스 사용
-            //SqlConnection conn = new SqlConnection(strConn);  
-
             //2.데이터베이스 접속을 위한 연결
             conn.Open();
 
