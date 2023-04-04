@@ -29,7 +29,7 @@ namespace LottoApp
                 if (flag == false)
                     lotto[i] = n;
                 else{
-                    
+                    flag = false;
                     i--;
                 }
                     
