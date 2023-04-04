@@ -28,8 +28,11 @@ namespace LottoApp
                 }//end of for_j
                 if (flag == false)
                     lotto[i] = n;
-                else          
+                else{
+                    
                     i--;
+                }
+                    
             }
 
             int bonus = lotto[0];
