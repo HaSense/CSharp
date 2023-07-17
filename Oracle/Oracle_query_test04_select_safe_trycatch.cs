@@ -18,7 +18,8 @@ class Program
             conn = new OracleConnection(strConn);
             conn.Open();
 
-            cmd = new OracleCommand("SELECT * FROM PhoneBook", conn);
+            string query = "SELECT * FROM PhoneBook";
+            cmd = new OracleCommand(query, conn);
             rdr = cmd.ExecuteReader();
 
             while (rdr.Read())
