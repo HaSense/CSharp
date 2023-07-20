@@ -29,7 +29,7 @@ namespace SQLParameterTest
             //2.데이터베이스 접속을 위한 연결
             conn.Open();
 
-            //3.서버와 함께 신나게 놀기
+            //3.DBMS서버로 보낼 쿼리 작성하기
             // ~~~~~~~~
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
