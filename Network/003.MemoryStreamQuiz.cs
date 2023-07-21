@@ -23,8 +23,8 @@ namespace IOTest
             ms.Write(strBytes, 0, strBytes.Length);
 
             ms.Position = 0; //함정
-            sr = new StreamReader(ms, Encoding.UTF8, true);
-            string txt2 = sr.ReadToEnd();
+            StreamReader sr2 = new StreamReader(ms, Encoding.UTF8, true);
+            string txt2 = sr2.ReadToEnd();
 
             Console.WriteLine(txt2);
 
