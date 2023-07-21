@@ -15,6 +15,7 @@ namespace IOTest
             StreamReader sr = new StreamReader(path, Encoding.UTF8);
             string txt = sr.ReadToEnd();
             sr.Close();
+            Console.WriteLine(txt);
 
             //MemoryStream 
             MemoryStream ms = new MemoryStream();
@@ -23,9 +24,9 @@ namespace IOTest
 
             ms.Position = 0; //함정
             sr = new StreamReader(ms, Encoding.UTF8, true);
-            txt = sr.ReadToEnd();
+            string txt2 = sr.ReadToEnd();
 
-            Console.WriteLine(txt);
+            Console.WriteLine(txt2);
 
         }
     }
