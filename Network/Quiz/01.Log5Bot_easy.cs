@@ -20,7 +20,7 @@ namespace Log5Bot
                 {
                     sw.WriteLine($"{System.DateTime.Now.ToString()}:정상동작중");
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(5000);
             }
         }
     }
