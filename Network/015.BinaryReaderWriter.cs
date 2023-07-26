@@ -20,7 +20,6 @@ namespace FileReaderWriter_Binary
                 BinaryReader br = new BinaryReader(fs);
                 picture = br.ReadBytes((int)fs.Length);
                 br.Close();
-                fs.Close();
             }
             path = "C:\\Temp\\pic2.png";
             using (FileStream fs = new FileStream(path, FileMode.Create))
@@ -29,7 +28,6 @@ namespace FileReaderWriter_Binary
                 bw.Write(picture);
                 bw.Flush(); //이진파일 Flush() 신경
                 bw.Close();
-                fs.Close();
             }
         }
     }
