@@ -61,8 +61,6 @@ namespace WinTCPServer
                 {
                     AppendText(Encoding.UTF8.GetString(data, 0, bytes)+"\n");
                 }
-
-                stream.Close();
             }
             client.Close();
         }
