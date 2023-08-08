@@ -12,6 +12,9 @@
                AGE     INT,
                JOB     VARCHAR2(30)
              );
+
+             코드의 context.Database.EnsureCreated()는 테이블을 생성하는 메소드 입니다.
+             현재 알수없는 이유로 테이블이 생성되지 않아 원인을 파악하고 있습니다.
 */
 
 using Microsoft.EntityFrameworkCore;
