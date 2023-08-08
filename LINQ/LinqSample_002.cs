@@ -1,3 +1,7 @@
+/*
+    현재 2023.08.08
+    오라클11g express에서 테이블이 만들어 있을 경우 아래 삽입코드는 정상동작합니다.
+*/
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
