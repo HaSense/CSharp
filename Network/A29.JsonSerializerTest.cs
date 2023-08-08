@@ -13,7 +13,7 @@ using System.Text;
 using System.Text.Json;
 using System.Xml.Linq;
 
-namespace JsonSerializeExam01
+namespace JsonSerializerTest
 {
     class FileManager
     {
