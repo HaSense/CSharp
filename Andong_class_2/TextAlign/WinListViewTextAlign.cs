@@ -33,7 +33,7 @@ namespace TextAlign003
 
             // 컬럼 헤더를 추가
             listView1.Columns.Add("번호", 50);
-            listView1.Columns.Add("내용", 100);
+            listView1.Columns.Add("내용", 150);
             listView1.Columns.Add("점수", 50);
 
             // 리스트뷰에 행을 추가
