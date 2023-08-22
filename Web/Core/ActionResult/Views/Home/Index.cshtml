@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+   // Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<h1>현재 시간은 @DateTime.Now</h1>
+<h1>올해 연도는 @DateTime.Now.Year</h1>
+
+
+@{
+    var name = "홍길동";
+    var age = 30;
+}
+
+<h2>이름 : @name</h2>
+<h2>나이 : @age</h2>
+
+@{
+    var MyName = "shha";
+
+    if (MyName.Equals("shha"))
+    {
+        <h2>shha</h2>
+    }
+    else
+    {
+        <h2>이름이 맞지 않습니다.</h2>
+    }
+
+}
+
+@{
+    for(int i=0; i<5; i++)
+    {
+        <h3>@i</h3>
+    }
+}
+
+@{
+    string[] fruits = { "사과", "배", "딸기" };
+    foreach(var item in fruits)
+    {
+        <h3>@item</h3>
+    }
+}

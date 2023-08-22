@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+   // Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Contact</h1>
+
+<h2>@ViewData["data1"]</h2>
+<h2>@ViewData["data2"]</h2>
+<h2>@ViewData["data3"]</h2>
+
+@{
+    foreach(var item in (string[])ViewData["data4"])
+    {
+        <h2>@item</h2>
+    }
+}
