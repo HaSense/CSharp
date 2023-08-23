@@ -1,0 +1,24 @@
+
+@{
+    ViewData["Title"] = "UseTempData";
+}
+
+<h1>UseTempData</h1>
+
+@ViewData["data1"]<br />
+@ViewBag.data2<br />
+@TempData["data3"]<br />
+@{
+    if(TempData["data4"] != null)
+    {
+        foreach (var item in (List<string>)TempData["data4"])
+        {
+            <h3>@item</h3>
+        }
+    }
+    else
+    {
+        <h1>No Data Found</h1>
+    }
+
+}
