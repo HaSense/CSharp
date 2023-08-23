@@ -1,0 +1,28 @@
+
+@{
+    ViewData["Title"] = "UseViewBag";
+}
+
+<h1>UseViewBag</h1>
+
+@ViewBag.data1;
+<br />
+@ViewBag.data2;
+<br />
+@ViewBag.data3;
+<br />
+@{
+    foreach(var item in ViewBag.data4)
+    {
+        <h3>@item</h3>
+    }
+}
+
+@{
+    foreach(var item in ViewBag.data5) //daaata5 compile time no error check
+    {
+        <h3>@item</h3>
+    }
+}
+<br />
+
