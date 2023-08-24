@@ -1,6 +1,8 @@
 /*
-    현재 2023.08.08
-    오라클11g express에서 테이블이 만들어 있을 경우 아래 삽입코드는 정상동작합니다.
+    현재 2023.08.24
+    오라클18c express에서 테이블이 만들어 있을 경우 아래 삽입코드는 정상동작합니다.
+
+    현코드는 테이블을 만들면서 데이터까지 삽입하는 코드입니다.
 */
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
