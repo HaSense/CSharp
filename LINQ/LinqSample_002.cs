@@ -7,9 +7,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Emit;
 
-namespace LinqSample_003
+namespace LinqSample_002
 {
-    [Table("Person")]
     public class Person
     {
         public int ID { get; set; }
