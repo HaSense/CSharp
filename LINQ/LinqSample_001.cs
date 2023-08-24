@@ -34,7 +34,7 @@ namespace LinqSample_001
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseOracle("User Id=c##scott;Password=1234;Data Source=127.0.0.1/XE;");
+            optionsBuilder.UseOracle("User Id=c##scott;Password=tiger;Data Source=127.0.0.1/XE;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -59,7 +59,9 @@ namespace LinqSample_001
             using (var context = new PersonContext())
             {
                 // 데이터베이스와 테이블 생성
-                context.Database.EnsureCreated();
+                //context.Database.EnsureDeleted(); //기존의 테이블이 있을경우 삭제를 단행하는데 DB자체를 지우는 명령어라 타 테이블도 삭제됩니다.
+                                                    //조심해서 사용해야할 필요가 있습니다.
+                context.Database.EnsureCreated();   //테이블 또는 DB를 만드는 명령어인데 기존에 존재하는 파일이 있다면 아무 작업도 하지 않습니다.
                 Console.WriteLine("데이터베이스 테이블이 생성되었습니다.");
             }
         }
