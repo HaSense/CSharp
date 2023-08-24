@@ -30,11 +30,11 @@ namespace LinqSample_001
     }
     public class PersonContext : DbContext
     {
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<Person> Person { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseOracle("User Id=hr;Password=hr;Data Source=127.0.0.1/XE;");
+            optionsBuilder.UseOracle("User Id=c##scott;Password=1234;Data Source=127.0.0.1/XE;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
