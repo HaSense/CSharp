@@ -18,7 +18,7 @@ namespace LinqSample_002
     }
     public class PersonContext : DbContext
     {
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<Person> Person { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -58,7 +58,7 @@ namespace LinqSample_002
                     new Person { ID = 4, NAME = "이재용", AGE = 55, JOB = "그룹회장" }
                 };
 
-                context.Persons.AddRange(persons);
+                context.Person.AddRange(persons);
                 context.SaveChanges();
                 Console.WriteLine("데이터 삽입 성공!");
             }
