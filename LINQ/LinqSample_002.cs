@@ -9,7 +9,7 @@ using System.Reflection.Emit;
 
 namespace LinqSample_003
 {
-    [Table("PERSON", Schema = "HR")]
+    [Table("PERSON", Schema = "c##scott")]
     public class Person
     {
         public int ID { get; set; }
@@ -23,7 +23,7 @@ namespace LinqSample_003
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseOracle("User Id=hr;Password=hr;Data Source=127.0.0.1/XE;");
+            optionsBuilder.UseOracle("User Id=c##scott;Password=tiger;Data Source=127.0.0.1/XE;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
