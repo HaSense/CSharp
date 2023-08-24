@@ -31,7 +31,7 @@ namespace Linq_update1
                 if (personToEdit != null)
                 {
                     personToEdit.NAME = "강감찬";
-                    personToEdit.AGE = 40; // 강감찬의 나이나 직업 등을 알지 못하므로 예시로 적어둡니다.
+                    personToEdit.AGE = 40; 
                     personToEdit.JOB = "장군";
 
                     // 변경 사항 저장
