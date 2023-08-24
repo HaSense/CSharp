@@ -46,7 +46,8 @@ namespace LinqSample_002
             using (var context = new PersonContext())
             {
                 // 데이터베이스와 테이블 생성 (필요한 경우)
-                //context.Database.EnsureCreated(); 
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated(); 
 
                 // 데이터 삽입
                 var persons = new List<Person>
