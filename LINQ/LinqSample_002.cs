@@ -9,7 +9,7 @@ using System.Reflection.Emit;
 
 namespace LinqSample_003
 {
-    [Table("PERSON", Schema = "c##scott")]
+    [Table("Person")]
     public class Person
     {
         public int ID { get; set; }
