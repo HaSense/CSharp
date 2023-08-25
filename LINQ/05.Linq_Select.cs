@@ -23,16 +23,16 @@ namespace Linq_Select
         {
             using (var context = new PersonContext())
             {
-                var allPersons = context.Person.ToList();
+                var persons = context.Person.ToList();
 
                 // 헤더 출력
                 Console.WriteLine($"{nameof(Person.ID),-5} {nameof(Person.NAME),-15} {nameof(Person.AGE),-5} {nameof(Person.JOB),-15}");
                 Console.WriteLine(new string('-', 40));
 
                 // 데이터 출력
-                foreach (var person in allPersons)
+                foreach (var p in persons)
                 {
-                    Console.WriteLine($"{person.ID,-5} {person.NAME,-15} {person.AGE,-5} {person.JOB,-15}");
+                    Console.WriteLine($"{p.ID,-5} {p.NAME,-15} {p.AGE,-5} {p.JOB,-15}");
                 }
             }
         }
