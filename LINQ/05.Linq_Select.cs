@@ -24,11 +24,13 @@ namespace Linq_Select
             using (var context = new PersonContext())
             {
                 var persons = context.Person.ToList();
-
+            
                 // 헤더 출력
                 Console.WriteLine($"{nameof(Person.ID),-5} {nameof(Person.NAME),-15} {nameof(Person.AGE),-5} {nameof(Person.JOB),-15}");
                 Console.WriteLine(new string('-', 40));
-
+                /* nameof 연산자는 C# 6.0에서 도입된 연산자로, 변수, 타입, 또는 멤버의 이름을 문자열로 반환
+                   주로 예외 메시지나 로깅, 속성명 변경 알림 등에서 사용 */
+                
                 // 데이터 출력
                 foreach (var p in persons)
                 {
