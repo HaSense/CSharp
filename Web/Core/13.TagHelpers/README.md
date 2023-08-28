@@ -11,3 +11,13 @@ Tag Helpers
 - @addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
 - @addTagHelper is a directive
 - we are going to implement hyperlinks using tag helpers.
+
+
+Creating Form Using Tag Helper
+- The Form Tag Helper
+- The Form Action Tag Helper
+- The Input Tag Helper
+- The Textarea Tag Helper
+- The Label Tag Helper
+- The Validation Tag Helpers
+- The Select Tag Helper
