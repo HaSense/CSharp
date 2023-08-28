@@ -1,0 +1,50 @@
+﻿@model MVC_TagHelpers_Exam.Models.Student;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form class="d-grid" asp-action="Index" asp-controller="Home" method="post">
+                <label asp-for="Name">이름 : </label>
+                <input asp-for="Name" placeholder="이름을 입력해주세요." class="form-control" />
+                <br />
+                <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+                    <option value="">성별을 선택해 주세요.</option>
+                </select>
+                <br />
+                <input asp-for="Age" placeholder="나이을 입력해주세요." class="form-control" />
+                <br />
+                <input asp-for="Hp" placeholder="전화번호를 입력해주세요." class="form-control" />
+                <br />
+                <label>취업여부</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" type="radio" asp-for="IsEmployed" value="취업중">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        취업중
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" type="radio" asp-for="IsEmployed" value="미취업" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        미취업
+                    </label>
+                </div>
+                <br />
+                <textarea asp-for="Description" class="form-control" rows="5" placeholder="학생 상세정보가 있다면 적어주세요.">
+
+                </textarea>
+                <br/>
+                <input type="submit" value="OK" class="btn btn-outline-primary" />
+            </form>
+        </div>
+    </div>
+
+</div>
