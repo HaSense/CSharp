@@ -1,0 +1,52 @@
+﻿@model TagHelpersDemo.Models.Student;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form class="d-grid" asp-action="Index" asp-controller="Home" method="post">
+                <input asp-for="Name" placeholder="이름을 입력해주세요." class="form-control" />
+                <br />
+                <input asp-for="Age" placeholder="나이을 입력해주세요." class="form-control"  />
+                <br />
+                <input asp-for="Hp" placeholder="전화번호를 입력해주세요." class="form-control" />
+                <br />
+                <input type="submit" value="OK" class="btn btn-outline-primary" />
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@* <a href="/Home/Contact">Contact Page 1</a>
+<br />
+@Html.ActionLink("Contact Page 2", "Contact", "Home")
+<br />
+<a href="@Url.Action("Contact","Home")">Contact Page 3</a>
+<br />
+<a asp-controller="Home" asp-action="Contact">Contact Page 4</a> *@
+
+@* <a href="/Home/Contact/1">Contact Page 1</a>
+<br />
+@Html.ActionLink("Contact Page 2", "Contact", "Home", new {id = 1})
+<br />
+<a href="@Url.Action("Contact","Home", new {id = 1})">Contact Page 3</a>
+<br />
+<a asp-controller="Home" asp-action="Contact" asp-route-id="1">Contact Page 4</a>
+ *@
+
+<a href="/Home/Contact">Contact Page 1</a>
+<br />
+@Html.ActionLink("Contact Page 2", "Contact", "Home")
+<br />
+<a href="@Url.Action("Contact","Home")">Contact Page 3</a>
+<br />
+<a asp-controller="Home" asp-action="Contact">Contact Page 4</a>
