@@ -1,0 +1,43 @@
+﻿@model List<CRUDMVC01.Models.Student>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h2>Students</h2>
+
+
+
+<form method="post" action="/Home/DeleteSelected">
+    <button type="button" class="btn btn-outline-primary" onclick="location.href='/Home/Create'">삽입</button>
+    <button type="button" class="btn btn-outline-primary" onclick="location.href='/'">목록</button>
+    <button type="submit" class="btn btn-outline-danger">삭제</button>
+    <button type="button" class="btn btn-outline-primary" onclick="location.href='/Home/Update'">수정</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th> <!-- 체크박스 컬럼 추가 -->
+                <th>Id</th>
+                <th>Name</th>
+                <th>Hp</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" value="@student.Id" name="selectedStudents" /></td>
+                    <td>@student.Id</td>
+                    <td>@student.Name</td>
+                    <td>@student.Hp</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
