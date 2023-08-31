@@ -1,0 +1,31 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* 사용자 정의 태그 */
+.underline-input {
+    border: none;
+    border-bottom: 2px solid #007BFF; /* Bootstrap primary color */
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+}
+.underline-input:focus {
+    border-color: #0056b3; /* Darken version of primary color */
+    box-shadow: none;
+}
