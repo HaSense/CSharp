@@ -25,8 +25,9 @@ Built-in attributes
 
 
 
-[Reg Express]
-Email Regular Express Code
+**[Reg Express]**
+
+**Email Regular Express Code**
 ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
 
 Alpha-Numeric
