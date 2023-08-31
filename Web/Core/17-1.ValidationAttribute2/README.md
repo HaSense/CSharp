@@ -28,17 +28,23 @@ Built-in attributes
 **[Reg Express]**
 
 **Email Regular Express Code**
+
 ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
 
 Alpha-Numeric
+
 [a-zA-Z0-9]
 
 8자리 PassWord
+
 (?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$      
+
 Strong password
+
 (?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z](?=.*[a-z]).*$
 
 CNIC
+
 ^[0-9]{5}-[0-9]{7}-[0-9]$
 
 영문 숫자 조합 8자리 이상
