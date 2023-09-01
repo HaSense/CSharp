@@ -27,6 +27,3 @@ C:\Users\[사용자경로]\source\repos\Mp3SqlServerApp\bin\Debug\net6.0
 
 
 
-
-
-6
