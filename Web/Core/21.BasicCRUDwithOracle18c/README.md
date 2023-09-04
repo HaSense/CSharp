@@ -18,10 +18,10 @@ DB 마이그레션 시 명령어
 
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
+
     modelBuilder.Entity<Student>()
         .Property(s => s.Id)
         .ValueGeneratedOnAdd();
-
     modelBuilder.Entity<Student>()
         .Property(s => s.Id)
         .HasDefaultValueSql("STUDENT_ID_SEQ.NEXTVAL");
