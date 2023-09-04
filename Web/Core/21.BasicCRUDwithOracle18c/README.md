@@ -38,5 +38,9 @@ DBContext 코드에 .ValueGeneratedOnAdd()를 넣으면 자동으로 시퀀스�
 
 테스트 결과 저는 정상 동작합니다.
 
+그리고 MSSQL로 만든 BasicCRUD는 HomeController에서만 작업한것 같아.
+CRUDController를 따로 만들어서 CRUD 기능을 구현해 보았습니다.
+
+
 
    
