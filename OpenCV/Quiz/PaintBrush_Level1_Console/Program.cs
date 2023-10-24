@@ -1,3 +1,9 @@
+/*
+Level1 
+Menu 클래스를 확장하여 만들다 보니 의미가 커져 버렸습니다.
+일단 하는 일이 많으니 PaintToolbox란 클래스 이름으로 정하고 수정하도록 하겠습니다.
+*/
+
 using OpenCvSharp;
 using System;
 using System.Collections.Generic;
@@ -24,7 +30,7 @@ namespace PaintBrush_Level1_Console
         public const int PALETTE = 12;          // 색상팔레트
         public const int HUE_IDX = 13;          // 색상인덱스
     }
-    public class Menu
+    public class PaintToolbox
     {
         private int hue; // hue 값 - 전역변수 지정
         private List<Rect> icons = new List<Rect>();
@@ -105,22 +111,22 @@ namespace PaintBrush_Level1_Console
         static void Main(string[] args)
         {
             Mat image = new Mat(500, 800, MatType.CV_8UC3, Scalar.All(255)); // Create the Mat object in Main
-            Menu menu = new Menu();
+            PaintToolbox toolbox = new PaintToolbox();
 
-            menu.SetImage(image);
-            menu.PlaceIcons(new Size(60, 60)); // 아이콘 배치, 아이콘 크기
+            toolbox.SetImage(image);
+            toolbox.PlaceIcons(new Size(60, 60)); // 아이콘 배치, 아이콘 크기
 
-            Rect lastIcon = menu.Icons.Last(); // 아이콘 사각형 마지막 원소
+            Rect lastIcon = toolbox.Icons.Last(); // 아이콘 사각형 마지막 원소
             //Point startPale = lastIcon.BottomRight + new Point(0, 5); // 팔레트 시작위치
             Point startPale = new Point(0, lastIcon.BottomRight.Y + 5); //팔레트 시작위치
 
-            menu.Icons.Add(new Rect(startPale, new Size(100, 100))); // 팔레트 사각형 추가
-            menu.Icons.Add(new Rect(startPale + new Point(105, 0), new Size(15, 100))); // 색상인덱스 사각형 추가
+            toolbox.Icons.Add(new Rect(startPale, new Size(100, 100))); // 팔레트 사각형 추가
+            toolbox.Icons.Add(new Rect(startPale + new Point(105, 0), new Size(15, 100))); // 색상인덱스 사각형 추가
 
-            menu.CreateHueIndex(menu.Icons[IconFlags.HUE_IDX]); // 팔레트 생성
-            menu.CreatePalette(startPale.Y, menu.Icons[IconFlags.PALETTE]); // 색상인덱스 생성
+            toolbox.CreateHueIndex(toolbox.Icons[IconFlags.HUE_IDX]); // 팔레트 생성
+            toolbox.CreatePalette(startPale.Y, toolbox.Icons[IconFlags.PALETTE]); // 색상인덱스 생성
 
-            Cv2.ImShow("image", menu.Image);
+            Cv2.ImShow("image", toolbox.Image);
             Cv2.WaitKey();
         }
     }
