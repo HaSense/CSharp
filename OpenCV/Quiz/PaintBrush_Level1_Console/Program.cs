@@ -106,8 +106,9 @@ namespace PaintBrush_Level1_Console
             menu.PlaceIcons(new Size(60, 60)); // 아이콘 배치, 아이콘 크기
 
             Rect lastIcon = menu.Icons.Last(); // 아이콘 사각형 마지막 원소
-            Point startPale = lastIcon.BottomRight + new Point(0, 5); // 팔레트 시작위치
-
+            //Point startPale = lastIcon.BottomRight + new Point(0, 5); // 팔레트 시작위치
+            Point startPale = new Point(0, lastIcon.BottomRight.Y + 5); // 팔레트 시작위치 이렇게 해야 톡 튀어나오지 않습니다.
+            
             menu.Icons.Add(new Rect(startPale, new Size(100, 100))); // 팔레트 사각형 추가
             menu.Icons.Add(new Rect(startPale + new Point(105, 0), new Size(15, 100))); // 색상인덱스 사각형 추가
 
