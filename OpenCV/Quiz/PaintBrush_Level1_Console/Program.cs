@@ -1,4 +1,4 @@
-﻿using OpenCvSharp;
+using OpenCvSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,21 +31,24 @@ namespace PaintBrush_Level1_Console
         private Mat image;
         public List<Rect> Icons => icons;
         public Mat Image => image;
-        //생성자!
-        public Menu()
+
+
+        public void SetImage(Mat img)
         {
-            image = new Mat(500, 800, MatType.CV_8UC3, Scalar.All(255));
+            this.image = img;
         }
+
         public void PlaceIcons(Size size) // size : 아이콘 크기
         {
             List<string> iconNames = new List<string>
-        {
-            "rect", "circle", "eclipe", "line", "brush", "eraser",
-            "open", "save", "plus", "minus", "clear", "color"
-        };
+            {
+                "rect", "circle", "eclipe", "line", "brush", "eraser",
+                "open", "save", "plus", "minus", "clear", "color"
+            };
 
             int btnRows = (int)Math.Ceiling(iconNames.Count / 2.0); // 2열 버튼의 행수
 
+            
             for (int i = 0, k = 0; i < btnRows; i++)
             {
                 for (int j = 0; j < 2; j++, k++)
@@ -60,6 +63,7 @@ namespace PaintBrush_Level1_Console
                     icon.CopyTo(image[icons[k]]);
                 }
             }
+
         }
 
         public void CreateHueIndex(Rect rect) // rect - 색상인덱스 영역
@@ -100,15 +104,16 @@ namespace PaintBrush_Level1_Console
     {
         static void Main(string[] args)
         {
-            //Mat image = new Mat(500, 800, MatType.CV_8UC3, Scalar.All(255));
+            Mat image = new Mat(500, 800, MatType.CV_8UC3, Scalar.All(255)); // Create the Mat object in Main
             Menu menu = new Menu();
 
+            menu.SetImage(image);
             menu.PlaceIcons(new Size(60, 60)); // 아이콘 배치, 아이콘 크기
 
             Rect lastIcon = menu.Icons.Last(); // 아이콘 사각형 마지막 원소
             //Point startPale = lastIcon.BottomRight + new Point(0, 5); // 팔레트 시작위치
-            Point startPale = new Point(0, lastIcon.BottomRight.Y + 5); // 팔레트 시작위치 이렇게 해야 톡 튀어나오지 않습니다.
-            
+            Point startPale = new Point(0, lastIcon.BottomRight.Y + 5); //팔레트 시작위치
+
             menu.Icons.Add(new Rect(startPale, new Size(100, 100))); // 팔레트 사각형 추가
             menu.Icons.Add(new Rect(startPale + new Point(105, 0), new Size(15, 100))); // 색상인덱스 사각형 추가
 
