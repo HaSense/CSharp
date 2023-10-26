@@ -63,9 +63,9 @@ namespace CalHist_Level6_Equlize
             Mat dst2 = new Mat();
             Mat histImg1 = CreateHist(image, out hist);
 
-            //자체 평활화 //////////////////////////////////////////
+            
             Mat accumHist = Mat.Zeros(hist.Size(), hist.Type());
-
+            
             accumHist.Set<float>(0, hist.At<float>(0));
             for (int i = 1; i < accumHist.Rows; i++)
                 accumHist.Set<float>(i, accumHist.At<float>(i - 1) + hist.At<float>(i));
@@ -84,7 +84,7 @@ namespace CalHist_Level6_Equlize
             Cv2.ImShow("dst1", dst1);
             Cv2.ImShow("dst2", dst2);
             Cv2.ImShow("histImg1", histImg1);
-            //Cv2.ImShow("histImg2", histImg2);
+            Cv2.ImShow("histImg2", histImg2);
             Cv2.ImShow("histImg3", histImg3);
 
             Cv2.WaitKey();
