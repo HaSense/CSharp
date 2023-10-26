@@ -111,7 +111,7 @@ namespace CalHist_Level6_Equlize
             Cv2.ImShow("histImg2", histImg2);
             Cv2.ImShow("histImg3", histImg3);
 
-            Cv2.WaitKey(); // 키 입력을 대기
+            Cv2.WaitKey(); 
         }
     }
 }
