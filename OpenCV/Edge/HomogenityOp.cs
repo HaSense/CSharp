@@ -11,26 +11,28 @@ namespace HomogenityOp
     {
         public static void HomogenOp(Mat img, Mat dst, int maskSize)
         {
-            Point h_m = new Point(maskSize / 2, maskSize / 2);
+            // 마스크의 중심 좌표 계산
+            Point maskCenter = new Point(maskSize / 2, maskSize / 2);
 
-            for (int i = h_m.Y; i < img.Rows - h_m.Y; i++)
+            for (int i = maskCenter.Y; i < img.Rows - maskCenter.Y; i++)
             {
-                for (int j = h_m.X; j < img.Cols - h_m.X; j++)
+                for (int j = maskCenter.X; j < img.Cols - maskCenter.X; j++)
                 {
-                    byte max = 0;
+                    byte maxDifference = 0;
 
+                    // 주변 픽셀과의 차이 계산
                     for (int u = 0; u < maskSize; u++)
                     {
                         for (int v = 0; v < maskSize; v++)
                         {
-                            int y = i + u - h_m.Y;
-                            int x = j + v - h_m.X;
+                            int y = i + u - maskCenter.Y;
+                            int x = j + v - maskCenter.X;
                             byte difference = (byte)Math.Abs(img.At<byte>(i, j) - img.At<byte>(y, x));
-                            if (difference > max) max = difference;
+                            if (difference > maxDifference) maxDifference = difference;
                         }
                     }
 
-                    dst.At<byte>(i, j) = max;
+                    dst.At<byte>(i, j) = maxDifference;
                 }
             }
         }
