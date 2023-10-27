@@ -9,6 +9,7 @@ namespace HomogenityOp
 {
     internal class Program
     {
+        /// 균일도(균일성) 연산을 통해 이미지의 경계를 검출합니다.
         public static void HomogenOp(Mat img, Mat dst, int maskSize)
         {
             // 마스크의 중심 좌표 계산
