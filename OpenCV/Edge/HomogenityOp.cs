@@ -9,7 +9,8 @@ namespace HomogenityOp
 {
     internal class Program
     {
-        /// 차분 연산을 통해 이미지의 경계를 검출합니다.
+        /* 픽셀간의 균일도 또는 유사도를 이용하여 경계(에지)를 구하는 프로그램 입니다. */
+        
         public static void HomogenOp(Mat img, Mat dst, int maskSize)
         {
             // 마스크의 중심 좌표 계산
