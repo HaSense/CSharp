@@ -58,7 +58,7 @@ namespace ErosionApp
                 throw new Exception("이미지를 불러올 수 없습니다.");
 
             Mat thImg = new Mat();
-            //128이상의 픽셀값이면 모두 255로 변환하라!!
+            //128이상의 픽셀값이면 모두 255로 변환하라!! 128보다 작으면? 모두 0으로 변환 즉, 0과 255로 이진화하라.
             Cv2.Threshold(image, thImg, 128, 255, ThresholdTypes.Binary);
 
             var mask = new Mat(3, 3, MatType.CV_8UC1, new byte[] { 0, 1, 0, 1, 1, 1, 0, 1, 0 });
