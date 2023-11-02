@@ -93,6 +93,7 @@ namespace Rotation
             Cv2.ImShow("dst2-20도 회전(중심점)", dst2);
 
             Cv2.WaitKey();
+             
         }
     }
 }
