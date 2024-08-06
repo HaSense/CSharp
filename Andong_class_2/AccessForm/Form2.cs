@@ -18,6 +18,8 @@ namespace FormsAccessTest
         {
             InitializeComponent();
         }
+        //Form1에 접근하려면 Form1 속성 중 Modifiers를 private --> public으로 수정해 줘야 한다.
+        
         public Form2(object form)       //생성자를 하나 더 만듦
         {
             InitializeComponent();
