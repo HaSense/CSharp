@@ -29,7 +29,7 @@ namespace TCP_ServerClient
         {
             using (Socket srvSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 11200);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 13000);
 
                 srvSocket.Bind(endPoint);
                 srvSocket.Listen(10);
