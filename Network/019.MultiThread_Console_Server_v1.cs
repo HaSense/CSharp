@@ -46,7 +46,7 @@ namespace MultiThread_Console_Server_v1
 
             using(Socket srvSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 11200);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 13000);
 
                 srvSocket.Bind(endPoint);
                 srvSocket.Listen(50);
