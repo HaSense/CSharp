@@ -21,3 +21,6 @@ alter user smart temporary tablespace temp;
 -- TagHelper의 Model 관련 Form 디자인할때 <br>   
 4) Microsoft.VisualStudio.Web.CodeGeneration.Design<br>
 
+-- CodeFirst Migration 명령어 <br>
+1) add-migration initialcreate <br>
+2) update-database <br>
