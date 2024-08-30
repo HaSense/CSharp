@@ -1,4 +1,5 @@
-
+--0. 세션 변경 <br>
+alter session set "_ORACLE_SCRIPT" = true;<br>
 -- 1. 계정 생성<br>
 CREATE USER smart IDENTIFIED BY factory;
 
