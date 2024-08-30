@@ -10,3 +10,10 @@ grant unlimited tablespace to smart;
 
 -- 임시공간 부여 <br>
 alter user smart temporary tablespace temp;
+
+
+-- 오라클의 경우 받아야 되는 모듈<br>
+1) Oracle.EntityFrameworkCore <br>
+2) Oracle.ManagedDataAccess.Core <br>
+3) Microsoft.EntityFramework.Tools <br>
+
