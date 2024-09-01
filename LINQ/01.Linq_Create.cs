@@ -15,6 +15,11 @@
 
              코드의 context.Database.EnsureCreated()는 테이블을 생성하는 메소드 입니다.
              현재 알수없는 이유로 테이블이 생성되지 않아 원인을 파악하고 있습니다.
+
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
+Install-Package Microsoft.EntityFrameworkCore.Design
 */
 
 using Microsoft.EntityFrameworkCore;
