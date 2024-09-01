@@ -28,13 +28,16 @@ namespace LinqSample_001
         public int AGE { get; set; }
         public string JOB { get; set; }
     }
-    public class PersonContext : DbContext
+    public class PersonDbContext : DbContext
     {
         public DbSet<Person> Person { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseOracle("User Id=c##scott;Password=tiger;Data Source=127.0.0.1/XE;");
+            optionsBuilder.UseSqlServer("Server = (local)\\SQLEXPRESS; " +
+                        "Database = SmartFactory; " +
+                        "Trusted_Connection = True;" +
+                        "Encrypt=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -56,7 +59,7 @@ namespace LinqSample_001
     {
         static void Main(string[] args)
         {
-            using (var context = new PersonContext())
+            using (var context = new PersonDbContext())
             {
                 // 데이터베이스와 테이블 생성
                 //context.Database.EnsureDeleted(); //기존의 테이블이 있을경우 삭제를 단행하는데 DB자체를 지우는 명령어라 타 테이블도 삭제됩니다.
