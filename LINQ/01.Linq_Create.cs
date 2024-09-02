@@ -20,6 +20,10 @@ Install-Package Microsoft.EntityFrameworkCore
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Microsoft.EntityFrameworkCore.Design
+
+
+- Add-Migration InitialCreate
+- Update-Database
 */
 
 using Microsoft.EntityFrameworkCore;
