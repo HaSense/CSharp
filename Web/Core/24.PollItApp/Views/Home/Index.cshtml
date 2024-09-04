@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PollItApp.Models.Poll>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>설문지 작성 리스트</h1>
+
+<p>
+	
+	<a asp-action="Create" class="btn btn-primary">설문 새로 작성!</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Q1)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Q2)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Q10)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Id)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Q1)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Q2)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Q10)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">수정</a>
+					<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">상세</a>
+					<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">삭제</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

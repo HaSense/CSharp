@@ -1,0 +1,72 @@
+﻿@model PollItApp.Models.Poll
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Poll</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Q1" class="control-label">Q1. 1번 설문입니다. 당신이 살고 있는 지역은?</label>
+                <div>
+                    <input type="radio" asp-for="Q1" value="1" name="Q1" /> 경북 안동시
+                </div>
+                <div>
+                    <input type="radio" asp-for="Q1" value="2" name="Q1" /> 서울 특별시
+                </div>
+                <div>
+                    <input type="radio" asp-for="Q1" value="3" name="Q1" /> 경기도 수원시
+                </div>
+                <div>
+                    <input type="radio" asp-for="Q1" value="4" name="Q1" /> 충남 공주시
+                </div>
+                <span asp-validation-for="Q1" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Q2" class="control-label">Q2. 2번 설문입니다. 당신이 원하는 프로그램언어 1개를 선택하세요.</label>
+                <div>
+                    <input type="radio" asp-for="Q2" value="1" name="Q2" />  C/C++
+                </div>
+                <div>
+                    <input type="radio" asp-for="Q2" value="2" name="Q2" /> C#
+                </div>
+                <div>
+                    <input type="radio" asp-for="Q2" value="3" name="Q2" /> Java
+                </div>
+                <div>
+                    <input type="radio" asp-for="Q2" value="4" name="Q2" /> Python
+                </div>
+                <span asp-validation-for="Q2" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Q10" class="control-label">Q10. 10번 주관식 설문입니다. 내용을 입력하세요.</label>
+                <div>
+                    <textarea asp-for="Q10" class="form-control" rows="5" cols="80" name="Q10"></textarea>
+                </div>
+                <span asp-validation-for="Q10" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create"  class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
