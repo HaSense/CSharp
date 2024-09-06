@@ -24,7 +24,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 //세션기능을 사용 하려면 꼭 작성해야 합니다. build쪽 옵션은 말그대로 옵션 설정이지 정작 동작은 app.UseSession()을 통해서 세션 기능이 동작합니다.
-app.UseSession();
+<b>app.UseSession();<b>
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
