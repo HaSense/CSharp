@@ -29,8 +29,8 @@ namespace RectShow
 
             // 결과 출력
             Console.WriteLine($"rect3 = {rect3.X}, {rect3.Y}, {rect3.Width}x{rect3.Height}");
-            Console.WriteLine($"rect4 시작점 = {rect4.Location}, 끝점 = ({rect4.Right}, {rect4.Bottom})"); // 수정된 부분
-            Console.WriteLine($"rect5 크기 = {rect5.Width}x{rect5.Height}"); // 수정된 부분
+            Console.WriteLine($"rect4 시작점 = {rect4.Location}, 끝점 = ({rect4.Right}, {rect4.Bottom})"); 
+            Console.WriteLine($"rect5 크기 = {rect5.Width}x{rect5.Height}");
             Console.WriteLine($"[rect6] = {rect6}");
 
             // 한글로 결과 출력
