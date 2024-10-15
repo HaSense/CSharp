@@ -36,12 +36,7 @@ namespace ScalarShow
             Console.WriteLine($"green1 =  {green1}");
             Console.WriteLine($"green2 =  {green2}");
 
-            // 한글로 결과 출력
-            Console.WriteLine($"blue 값은 {blue.Val0}, {blue.Val1}, {blue.Val2} 입니다.");
-            Console.WriteLine($"red 값은 {red} 입니다.");
-            Console.WriteLine($"green 값은 {green} 입니다.");
-            Console.WriteLine($"green1의 값은 {green1} 입니다.");
-            Console.WriteLine($"green2의 값은 {green2} 입니다.");
+            
         }
     }
 }
