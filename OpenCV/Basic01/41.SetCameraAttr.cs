@@ -31,7 +31,7 @@ namespace SetCameraAttribute
             capture.Set(VideoCaptureProperties.FrameWidth, 800);
             capture.Set(VideoCaptureProperties.FrameHeight, 600);
             capture.Set(VideoCaptureProperties.AutoFocus, 0); // 수동 포커스 설정
-            capture.Set(VideoCaptureProperties.Brightness, 200);
+            capture.Set(VideoCaptureProperties.Brightness, 150);
 
             // 창 및 트랙바 생성
             string title = "카메라 속성변경";
