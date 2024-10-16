@@ -22,7 +22,6 @@ namespace DrawCircle
             Cv2.Circle(image, pt1, 80, orange, 2);
             Cv2.Circle(image, pt2, 60, magenta, -1);
 
-            int font = (int)HersheyFonts.HersheyComplex;
             Cv2.PutText(image, "center_blue", center, HersheyFonts.HersheyComplex, 1.2, blue);
             Cv2.PutText(image, "pt1_orange", pt1, HersheyFonts.HersheyComplex, 0.8, orange);
             //Cv2.PutText(image, "pt2_magenta", pt2 + Point(2, 2), HersheyFonts.HersheyComplex, 0.5, new Scalar(0, 0, 0), 2);
