@@ -1,5 +1,4 @@
 using OpenCvSharp;
-using System;
 
 namespace SetCameraAttribute
 {
