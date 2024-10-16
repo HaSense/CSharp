@@ -26,7 +26,9 @@ namespace TrackBarApp
             int add_value = value - 130;
             Console.WriteLine($"추가 화소값 {add_value}");
 
-            Mat tmp = image + add_value;
+            //Mat tmp = image + add_value;
+            Mat tmp = new Mat();
+            Cv2.Add(image, new Scalar(add_value), tmp); // Mat에 스칼라 값 더하기
             Cv2.ImShow(title, tmp);
         }
     }
