@@ -30,10 +30,10 @@ namespace CalcHist_Color
                 hsv.At<Vec3b>(i, 0) = new Vec3b(hue, 255, 255);
             }
 
-            //hsv.CvtColor(ColorConversionCodes.HSV2BGR); // C++처럼만 하면 변환이 안됨!!!
+            //hsv.CvtColor(ColorConversionCodes.HSV2RGB); // C++처럼만 하면 변환이 안됨!!!
             //return hsv;                               //복사본을 만들어 출력
             Mat bgrPalette = new Mat();
-            Cv2.CvtColor(hsv, bgrPalette, ColorConversionCodes.HSV2BGR);
+            Cv2.CvtColor(hsv, bgrPalette, ColorConversionCodes.HSV2RGB);
             return bgrPalette;
         }
 
