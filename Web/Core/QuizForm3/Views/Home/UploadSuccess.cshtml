@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Upload Success";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Image Uploaded Successfully!</h1>
+    <p>Original and enhanced images are shown below.</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Original Image</h3>
+            <img src="@ViewBag.OriginalImagePath" alt="Original Image" class="img-fluid" />
+        </div>
+        <div class="col-md-6">
+            <h3>Enhanced Image</h3>
+            <img src="@ViewBag.EnhancedImagePath" alt="Enhanced Image" class="img-fluid" />
+        </div>
+    </div>
+</div>
