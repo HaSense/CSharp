@@ -43,9 +43,11 @@ namespace MorphologyOpenClose
                 for (int j = h_m.X; j < img.Cols - h_m.X; j++)
                 {
                     Point start = new Point(j, i) - h_m;
+                    
                     bool check = CheckMatch(img, start, mask, 0);
                     dst.Set<byte>(i, j, (byte)(check ? 255 : 0));
                 }
+                
             }
         }
 
@@ -100,12 +102,19 @@ namespace MorphologyOpenClose
             Cv2.Threshold(image, th_img, 128, 255, ThresholdTypes.Binary);
 
             // 마스크 행렬 정의 (3x3 형태)
-            Mat mask = new Mat(3, 3, MatType.CV_8UC1, new Scalar(0));
-            mask.Set(0, 1, 1);
-            mask.Set(1, 0, 1);
-            mask.Set(1, 1, 1);
-            mask.Set(1, 2, 1);
-            mask.Set(2, 1, 1);
+            Mat mask = new Mat(3, 3, MatType.CV_8UC1);
+            byte[,] values = {
+                { 0, 1, 0 },
+                { 1, 1, 1 },
+                { 0, 1, 0 }
+            };
+            for (int i = 0; i < mask.Rows; i++)
+            {
+                for (int j = 0; j < mask.Cols; j++)
+                {
+                    mask.Set(i, j, values[i, j]);
+                }
+            }
 
             // 열기 연산 수행 (사용자 정의)
             Mat dst1 = new Mat();
