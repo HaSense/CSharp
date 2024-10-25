@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoplogyDilation
+namespace MorphologyDilation
 {
     internal class Program
     {
