@@ -87,4 +87,4 @@ namespace MorpologyDilation
             Cv2.WaitKey();
         }
     }
-}
+} 
