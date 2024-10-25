@@ -13,7 +13,7 @@ namespace DefectPlate
         {
             while (true)
             {
-                Console.WriteLine("차량 영상 번호( 0:종료 ) : ");
+                Console.Write("차량 영상 번호( 0:종료 ) : ");
                 if (!int.TryParse(Console.ReadLine(), out int no) || no == 0)
                     break;
 
