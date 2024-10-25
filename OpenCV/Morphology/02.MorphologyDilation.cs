@@ -65,12 +65,16 @@ namespace MorpologyDilation
             Cv2.Threshold(image, thImg, 128, 255, ThresholdTypes.Binary);
 
             var mask = new Mat(3, 3, MatType.CV_8UC1);
-            byte[] values = { 0, 1, 0, 1, 1, 1, 0, 1, 1 };
+            byte[,] values = {
+                { 0, 1, 0 },
+                { 1, 1, 1 },
+                { 0, 1, 1 }
+            };
             for (int i = 0; i < mask.Rows; i++)
             {
                 for (int j = 0; j < mask.Cols; j++)
                 {
-                    mask.Set(i, j, values[i * mask.Cols + j]);
+                    mask.Set(i, j, values[i, j]);
                 }
             }
 
@@ -87,4 +91,4 @@ namespace MorpologyDilation
             Cv2.WaitKey();
         }
     }
-} 
+}
