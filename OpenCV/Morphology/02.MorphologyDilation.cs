@@ -1,13 +1,13 @@
 using OpenCvSharp;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MorphologyDilation
+namespace MorpologyDilation
 {
+    
     internal class Program
     {
         static bool CheckMatch(Mat img, Point start, Mat mask, int mode)
@@ -55,17 +55,24 @@ namespace MorphologyDilation
                 }
             }
         }
-
         static void Main(string[] args)
         {
-            Mat image = Cv2.ImRead("c:\\Temp\\img\\morph_test1.jpg", ImreadModes.Grayscale);
+            Mat image = Cv2.ImRead(@"c:/Temp/opencv/morph_test1.jpg", ImreadModes.Grayscale);
             if (image.Empty())
                 throw new Exception("이미지를 불러올 수 없습니다.");
 
             Mat thImg = new Mat();
             Cv2.Threshold(image, thImg, 128, 255, ThresholdTypes.Binary);
 
-            var mask = new Mat(3, 3, MatType.CV_8UC1, new byte[] { 0, 1, 0, 1, 1, 1, 0, 1, 1 });
+            var mask = new Mat(3, 3, MatType.CV_8UC1);
+            byte[] values = { 0, 1, 0, 1, 1, 1, 0, 1, 1 };
+            for (int i = 0; i < mask.Rows; i++)
+            {
+                for (int j = 0; j < mask.Cols; j++)
+                {
+                    mask.Set(i, j, values[i * mask.Cols + j]);
+                }
+            }
 
             Mat dst1 = image.Clone();
             Dilation(thImg, dst1, mask);
