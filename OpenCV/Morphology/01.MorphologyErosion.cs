@@ -69,12 +69,19 @@ namespace MopologyErosion
 
             Cv2.Threshold(image, thImg, 128, 255, ThresholdTypes.Binary);
 
-            Mat mask = new Mat(3, 3, MatType.CV_8UC1, new Scalar(0));
-            mask.Set<byte>(0, 1, 1);
-            mask.Set<byte>(1, 0, 1);
-            mask.Set<byte>(1, 1, 1);
-            mask.Set<byte>(1, 2, 1);
-            mask.Set<byte>(2, 1, 1);
+            Mat mask = new Mat(3, 3, MatType.CV_8UC1);
+            byte[,] values = {
+                { 0, 1, 0 },
+                { 1, 1, 1 },
+                { 0, 1, 0 }
+            };
+            for (int i = 0; i < mask.Rows; i++)
+            {
+                for (int j = 0; j < mask.Cols; j++)
+                {
+                    mask.Set(i, j, values[i, j]);
+                }
+            }
 
             CVUtils cvUtils = new CVUtils();
             cvUtils.Erosion(thImg, dst1, mask);
