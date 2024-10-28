@@ -35,9 +35,22 @@ namespace PaintBrush_Level1_Console
         private int hue; // hue 값 - 전역변수 지정
         private List<Rect> icons = new List<Rect>();
         private Mat image;
-        public List<Rect> Icons => icons;
-        
-        //public Mat Image => image; //현재 표현은 아래와 동치
+        private int hue; // hue 값 - 전역변수 지정
+        private List<Rect> icons = new List<Rect>();
+        private Mat image;
+
+        //프로퍼터
+        public List<Rect> Icons
+        {
+            get { return icons; }
+        }
+ 
+        public Mat Image  //외부에서 값을 수정 못하게 읽기 전용으로 처리하기 위해
+        {
+            get { return image; }
+        }
+
+ //이하 사용자 정의 메소드
         public Mat Image      //외부에서 값을 수정 못하게 읽기 전용으로 처리하기 위해
         {
              get { return image;  }
