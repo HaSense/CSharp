@@ -44,18 +44,11 @@ namespace PaintBrush_Level1_Console
         {
             get { return icons; }
         }
- 
-        public Mat Image  //외부에서 값을 수정 못하게 읽기 전용으로 처리하기 위해
-        {
-            get { return image; }
-        }
-
- //이하 사용자 정의 메소드
         public Mat Image      //외부에서 값을 수정 못하게 읽기 전용으로 처리하기 위해
         {
              get { return image;  }
         }
-
+        //이하 사용자 정의 메소드
         public void SetImage(Mat img)
         {
             this.image = img;
