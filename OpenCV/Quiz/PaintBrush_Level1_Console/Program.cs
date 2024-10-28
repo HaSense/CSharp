@@ -36,8 +36,12 @@ namespace PaintBrush_Level1_Console
         private List<Rect> icons = new List<Rect>();
         private Mat image;
         public List<Rect> Icons => icons;
-        public Mat Image => image;
-
+        
+        //public Mat Image => image; //현재 표현은 아래와 동치
+        public Mat Image      //외부에서 값을 수정 못하게 읽기 전용으로 처리하기 위해
+        {
+             get { return image;  }
+        }
 
         public void SetImage(Mat img)
         {
