@@ -8,7 +8,7 @@ namespace BasicCRUD.Controllers
     public class HomeController : Controller
     {
         //private readonly ILogger<HomeController> _logger;
-        private readonly StudentDbContext _context;
+        private readonly StudentDbContext _context; //추가로 Program.cs에 dbContext 내용삽입 잊지마세요.
         //public HomeController(ILogger<HomeController> logger)
         //{
         //    _logger = logger;
