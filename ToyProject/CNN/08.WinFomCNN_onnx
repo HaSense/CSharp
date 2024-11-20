@@ -1,0 +1,184 @@
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WinFormCNN_V1
+{
+    public partial class Form1 : Form
+    {
+        // 그림을 그리는 중인지 확인하는 변수
+        private bool isDrawing = false;
+        // 이전 마우스 위치를 저장하는 변수
+        private Point lastPoint = Point.Empty;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.pictureBox1.BackColor = Color.White;
+            this.pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // 이미지가 없는 경우 빈 Bitmap 생성
+                if (this.pictureBox1.Image == null)
+                {
+                    this.pictureBox1.Image = new Bitmap(this.pictureBox1.Width, this.pictureBox1.Height);
+                }
+
+                this.isDrawing = true;
+                this.lastPoint = e.Location;
+            }
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.isDrawing && this.lastPoint != Point.Empty)
+            {
+                // PictureBox의 이미지에 그리기
+                using (Graphics g = Graphics.FromImage(this.pictureBox1.Image))
+                {
+                    g.DrawLine(Pens.Black, this.lastPoint, e.Location);
+                }
+                // PictureBox를 다시 그려서 변경 내용을 반영
+                this.pictureBox1.Invalidate();
+                this.lastPoint = e.Location;
+            }
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.isDrawing = false;
+                this.lastPoint = e.Location;
+            }
+        }
+
+        private void PredictButton_Click(object sender, EventArgs e)
+        {
+            if (this.pictureBox1.Image == null)
+            {
+                MessageBox.Show("먼저 그림을 그려주세요.");
+                return;
+            }
+
+            // PictureBox의 이미지를 Bitmap으로 캡처 (복사)
+            Bitmap drawnImage = new Bitmap(this.pictureBox1.Image);
+
+            // 이미지를 28x28로 리사이즈하고 색 반전 (흰색 배경 -> 검은 배경, 검은 글씨 -> 흰 글씨)
+            Bitmap resizedImage = new Bitmap(28, 28);
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                g.DrawImage(drawnImage, 0, 0, 28, 28);
+            }
+            InvertColors(resizedImage);
+
+            // 모델 입력 전처리
+            var inputTensor = PreprocessImage(resizedImage);
+
+            // ONNX 모델을 사용하여 예측 수행
+            string modelPath = @"C:/Users/shhawork/Code/AI/RNN/book01/cnn_model.onnx";
+            using (var session = new InferenceSession(modelPath))
+            {
+                var inputMeta = new NamedOnnxValue[] { NamedOnnxValue.CreateFromTensor("input", inputTensor) };
+                using (var results = session.Run(inputMeta))
+                {
+                    var output = results.First().AsTensor<float>().ToArray();
+                    int predictedClass = Array.IndexOf(output, output.Max());
+
+                    // 결과 출력
+                    this.resultLabel.Text = $"예측된 숫자: {predictedClass}";
+                }
+            }
+        }
+        // 색 반전 함수 (흰색 배경 -> 검은 배경, 검은 글씨 -> 흰 글씨)
+        private void InvertColors(Bitmap bitmap)
+        {
+            for (int y = 0; y < bitmap.Height; y++)
+            {
+                for (int x = 0; x < bitmap.Width; x++)
+                {
+                    Color originalColor = bitmap.GetPixel(x, y);
+                    Color invertedColor = Color.FromArgb(255 - originalColor.R, 255 - originalColor.G, 255 - originalColor.B);
+                    bitmap.SetPixel(x, y, invertedColor);
+                }
+            }
+        }
+        // 이미지 전처리 (픽셀 값을 정규화하고 텐서로 변환)
+        private DenseTensor<float> PreprocessImage(Bitmap bitmap)
+        {
+            float[] imageData = new float[1 * 1 * 28 * 28];
+            for (int y = 0; y < 28; y++)
+            {
+                for (int x = 0; x < 28; x++)
+                {
+                    Color pixel = bitmap.GetPixel(x, y);
+                    float pixelValue = pixel.R / 255.0f; // 정규화
+                    imageData[y * 28 + x] = pixelValue;
+                }
+            }
+
+            return new DenseTensor<float>(imageData, new int[] { 1, 1, 28, 28 });
+        }
+
+        // 소프트맥스 함수 (출력값을 확률로 변환)
+        private float[] Softmax(float[] logits)
+        {
+            float maxLogit = logits.Max();
+            float[] exps = logits.Select(logit => (float)Math.Exp(logit - maxLogit)).ToArray();
+            float sumExps = exps.Sum();
+            return exps.Select(exp => exp / sumExps).ToArray();
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            // PictureBox의 현재 크기를 반영하여 Image를 빈 Bitmap으로 초기화
+            this.pictureBox1.Image = new Bitmap(this.pictureBox1.Width, this.pictureBox1.Height);
+            using (Graphics g = Graphics.FromImage(this.pictureBox1.Image))
+            {
+                g.Clear(Color.White); // 배경을 흰색으로 초기화
+            }
+            this.pictureBox1.Invalidate(); // 갱신하여 초기화 상태를 화면에 반영
+
+            // 마우스 상태를 초기화 (마우스가 up 상태로 되도록)
+            this.isDrawing = false;
+            this.lastPoint = Point.Empty;
+        }
+
+        private void WriteButton_Click(object sender, EventArgs e)
+        {
+            // 예측할 이미지가 존재하는지 확인
+            if (this.pictureBox1.Image == null)
+            {
+                MessageBox.Show("먼저 그림을 그려주세요.");
+                return;
+            }
+
+            // PictureBox의 이미지를 Bitmap으로 캡처 (복사)
+            Bitmap drawnImage = new Bitmap(this.pictureBox1.Image);
+
+            // 디버깅: 그림을 저장하여 확인
+            string savedImagePath = "C:/Temp/mnist/drawn_image.png";
+            drawnImage.Save(savedImagePath);
+
+            MessageBox.Show("이미지가 성공적으로 저장되었습니다.");
+        }
+    }
+}
