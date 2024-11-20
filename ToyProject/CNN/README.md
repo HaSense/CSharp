@@ -2,5 +2,7 @@
 2. 신경망을 cnn_model_v2.pth 라는 파일로 저장
 3. C# 윈폼 프로젝트에서 동작시키기 위해 cnn_model.onnx 변환
 4. C# 콘솔에서 먼저 잘 동작하는지 테스트
-5. 윈폼에서 제대로 동작하는지 테스트
+   - Microsoft.ML.OnnxRuntime  nuget 모듈 필요
+   - System.Drawing.Common 현재 9.0.0을 사용했음   
+6. 윈폼에서 제대로 동작하는지 테스트
 
