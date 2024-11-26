@@ -28,10 +28,12 @@ Update-Database
    builder.Services.AddDbContext<LoginDbContext>(item => item.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
     //세션기능을 사용 하려면 꼭 작성 매우중요 !!!
+   
     //build쪽 옵션은 말그대로 옵션 설정이지 정작 동작은 app.UseSession()을 통해서 세션 기능이 동작합니다.
+   
     app.UseSession();
 
-3. HomeController.cs --> Login(get, post), Logout, Sign(get, post)
-4. LoginUser.cs, LoginDbContext.cs
-5. index.cshtml, Login.cshtml, SignUp.cshtml
-6. Views/Shared/_Layout.cshtml 수정하세요.
+4. HomeController.cs --> Login(get, post), Logout, Sign(get, post)
+5. LoginUser.cs, LoginDbContext.cs
+6. index.cshtml, Login.cshtml, SignUp.cshtml
+7. Views/Shared/_Layout.cshtml 수정하세요.
