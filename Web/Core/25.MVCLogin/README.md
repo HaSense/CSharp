@@ -24,8 +24,11 @@ Update-Database
    builder.Services.AddSession();
    
    //DbContext와 연결해주기 위해 추가됨
+   
    var provider = builder.Services.BuildServiceProvider();
+   
    var config = provider.GetRequiredService<IConfiguration>();
+   
    builder.Services.AddDbContext<LoginDbContext>(item => item.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
     //세션기능을 사용 하려면 꼭 작성 매우중요 !!!
@@ -34,7 +37,7 @@ Update-Database
    
     app.UseSession();
 
-3. HomeController.cs --> Login(get, post), Logout, Sign(get, post)
-4. LoginUser.cs, LoginDbContext.cs
-5. index.cshtml, Login.cshtml, SignUp.cshtml
-6. Views/Shared/_Layout.cshtml 수정하세요.
+4. HomeController.cs --> Login(get, post), Logout, Sign(get, post)
+5. LoginUser.cs, LoginDbContext.cs
+6. index.cshtml, Login.cshtml, SignUp.cshtml
+7. Views/Shared/_Layout.cshtml 수정하세요.
