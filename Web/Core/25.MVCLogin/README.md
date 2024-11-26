@@ -19,7 +19,6 @@ Update-Database
    },
 
 2. Program.cs
-3. 
    //세션기능을 추가하고 싶으면 AddSesion()을 등록하세요.
    
    builder.Services.AddSession();
@@ -35,7 +34,7 @@ Update-Database
    
     app.UseSession();
 
-5. HomeController.cs --> Login(get, post), Logout, Sign(get, post)
-6. LoginUser.cs, LoginDbContext.cs
-7. index.cshtml, Login.cshtml, SignUp.cshtml
-8. Views/Shared/_Layout.cshtml 수정하세요.
+3. HomeController.cs --> Login(get, post), Logout, Sign(get, post)
+4. LoginUser.cs, LoginDbContext.cs
+5. index.cshtml, Login.cshtml, SignUp.cshtml
+6. Views/Shared/_Layout.cshtml 수정하세요.
